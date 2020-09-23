@@ -417,6 +417,7 @@ export class CanvasWhiteboardComponent implements OnInit, AfterViewInit, OnChang
     }
 
     this._imageElement = new Image();
+    this._imageElement.crossOrigin = 'Anonymous';
     this._imageElement.addEventListener('load', () => {
       this._canDraw = true;
       callbackFn && callbackFn();
