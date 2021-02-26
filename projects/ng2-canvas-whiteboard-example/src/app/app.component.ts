@@ -43,7 +43,9 @@ export class AppComponent {
       const updates: Array<CanvasWhiteboardUpdate> = parsedStorageUpdates.map(updateJSON =>
         CanvasWhiteboardUpdate.deserializeJson(updateJSON));
       // Draw the updates onto the canvas
-      this.canvasWhiteboardService.drawCanvas(updates);
+      if (this.canvasWhiteboardComponent.getDrawingHistory().length != updates.length) {
+        this.canvasWhiteboardService.drawCanvas(updates);
+      }
     }
   }
 
